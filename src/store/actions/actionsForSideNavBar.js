@@ -1,7 +1,7 @@
-import {TABSELECTEDINSIDENAVBAR} from '../types'
+import { TABSELECTEDINSIDENAVBAR } from '../types'
 
 export const changeTabInSideNavBar = (tab) => {
-    return{
+    return {
         type: TABSELECTEDINSIDENAVBAR,
         selectedTab: tab
     }

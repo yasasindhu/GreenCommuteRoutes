@@ -4,10 +4,10 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import NoSsr from '@material-ui/core/NoSsr';
 import CheckIcon from '@material-ui/icons/Check';
 import styled from 'styled-components';
-import { makeStyles,ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import customtheme from '../../theme.jsx';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Label = styled('label')`
   padding: 0 0 4px;
@@ -75,55 +75,55 @@ const InputWrapper = styled('div')`
   }
 `;
 const useStyles = makeStyles({
-	
-	header: {
-		 display: "flex",
-		 justifyContent: "space-between",
-		 alignItems: "center",
-		 objectFit:'contain',
-     padding: '18px 18px 18px 20px',
-	},
+
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    objectFit: 'contain',
+    padding: '18px 18px 18px 20px',
+  },
   root: {
-  fontFamily:'Montserrat',
-  fontSize: '16px',
-  fontWeight: '500',
-  lineHeight: '1.5',
-  letterSpacing: '0.1px',
-  textAlign: 'left',
-  color:'#19293b',
- },
- rightGrid:{
-  // width: '50%',
-  // height: '900px',
-   MarginLeft:'50%',
-   backgroundColor: '#e7fce0'
-},
-  title:{
-  margin: '80px 160px 30px 80px',
-  fontFamily: 'Montserrat',
-  fontSize: '32px',
-  fontWeight: 600,
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  lineHeight: '1.31',
-  letterSpacing: '0.1px',
-  textAlign: 'left',
-  width: '550px',
-  height: '84px',
+    fontFamily: 'Montserrat',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '1.5',
+    letterSpacing: '0.1px',
+    textAlign: 'left',
+    color: '#19293b',
   },
-  subtitle:{
-   margin: '20px 176px 20px 80px',
-  // margin:'0 0 4px', 
-  fontFamily: 'Montserrat',
-  fontSize: '20px',
-  fontWeight: '600',
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  lineHeight: '1.3',
-  letterSpacing: '0.2px',
-  textAlign: 'left',
+  rightGrid: {
+    // width: '50%',
+    // height: '900px',
+    MarginLeft: '50%',
+    backgroundColor: '#e7fce0'
   },
-  inputAlignment:{
+  title: {
+    margin: '80px 160px 30px 80px',
+    fontFamily: 'Montserrat',
+    fontSize: '32px',
+    fontWeight: 600,
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.31',
+    letterSpacing: '0.1px',
+    textAlign: 'left',
+    width: '550px',
+    height: '84px',
+  },
+  subtitle: {
+    margin: '20px 176px 20px 80px',
+    // margin:'0 0 4px', 
+    fontFamily: 'Montserrat',
+    fontSize: '20px',
+    fontWeight: '600',
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.3',
+    letterSpacing: '0.2px',
+    textAlign: 'left',
+  },
+  inputAlignment: {
     fontFamily: 'Montserrat',
     fontSize: '60px',
   }
@@ -177,10 +177,10 @@ const Listbox = styled('ul')`
   }
 `;
 
-export default function CustomizedHook({handleOnClickBackButton}) {
+export default function CustomizedHook({ handleOnClickBackButton }) {
   const classes = useStyles();
-  const dispatch=useDispatch();
-  
+  const dispatch = useDispatch();
+
   const {
     getRootProps,
     getInputProps,
@@ -196,48 +196,42 @@ export default function CustomizedHook({handleOnClickBackButton}) {
     multiple: false,
     options: top100Films,
     getOptionLabel: (option) => option.value,
-    onChange:(event,values)=>  dispatch({type:"SHOWYOURLOCATION",location:(values.value)}),
- 
-   
+    onChange: (event, values) => dispatch({ type: "SHOWYOURLOCATION", location: (values.value) }),
   });
-console.log(value);
-const selectedPlace=useSelector((state=>state.showYourLocation))
-   console.log("your active location is "+selectedPlace.currentLocation+" in drop-down");
+
+  const selectedPlace = useSelector((state => state.showYourLocation))
+
   return (
-    <NoSsr data-testid = "nossrinselect">
-      <div  data-testid = "1stdivinselect">
-      <ThemeProvider theme={customtheme}>
-        <div {...getRootProps()} data-testid = "2nddivinselect">
-        <div >
-        <Typography className={classes.title}>More than 2000 people are using Green Commute</Typography>
-        </div>
-        <div className={classes.subtitle}>
+    <NoSsr data-testid="nossrinselect">
+      <div data-testid="1stdivinselect">
+        <ThemeProvider theme={customtheme}>
+          <div {...getRootProps()} data-testid="2nddivinselect">
+            <div >
+              <Typography className={classes.title}>More than 2000 people are using Green Commute</Typography>
+            </div>
+            <div className={classes.subtitle}>
               <Typography> What do you want to do?</Typography>
-        </div>
-        <InputWrapper data-testid = "inputwrapperinselect" ref={setAnchorEl} className={focused ? 'focused' : ''} >
-          <div className={classes.header} data-testid = "3rddivinselect">
-          <img data-testid = "imginselect"  src={"https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/1cf5595f-c291-4826-a6b4-1590090a90ff.svg"} width= '24px' height= '24px' />
-         </div>
-          
-              {/* <Tag data-testid = "taginselect" label={value.value} {...getTagProps({ value})} />
-           */}
-           
-            <input data-testid = "input1inselect" {...getInputProps()} placeholder="Enter your location"/>
-            
-          </InputWrapper>
-        </div>
-        {groupedOptions.length > 0 ? (
-          <Listbox data-testid = "input1inselect" {...getListboxProps()}>
-            {groupedOptions.map((option, index) => (
-              <li data-testid = "li1inselect" {...getOptionProps({ option, index })} >
-                <span data-testid = "span1inselect">{option.value}</span>
-                <CheckIcon data-testid = "checkinselect" fontSize="small" />
-              </li>
-            ))}
-          </Listbox>
-        ) : null}
-        <div data-testid = "4thinselect">    
-        </div>
+            </div>
+            <InputWrapper data-testid="inputwrapperinselect" ref={setAnchorEl} className={focused ? 'focused' : ''} >
+              <div className={classes.header} data-testid="3rddivinselect">
+                <img data-testid="imginselect" src={"https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/1cf5595f-c291-4826-a6b4-1590090a90ff.svg"} width='24px' height='24px' />
+              </div>
+              <input data-testid="input1inselect" {...getInputProps()} placeholder="Enter your location" />
+
+            </InputWrapper>
+          </div>
+          {groupedOptions.length > 0 ? (
+            <Listbox data-testid="input1inselect" {...getListboxProps()}>
+              {groupedOptions.map((option, index) => (
+                <li data-testid="li1inselect" {...getOptionProps({ option, index })} >
+                  <span data-testid="span1inselect">{option.value}</span>
+                  <CheckIcon data-testid="checkinselect" fontSize="small" />
+                </li>
+              ))}
+            </Listbox>
+          ) : null}
+          <div data-testid="4thinselect">
+          </div>
         </ThemeProvider>
       </div>
     </NoSsr>
@@ -250,14 +244,14 @@ const top100Films = [
   { value: "Mumbai", label: "Mumbai" },
   { value: "Chennai", label: "Chennai" },
   { value: "Delhi", label: "Delhi" },
-  {value:" Assam",label:" Assam"},
-  {value:"Bihar ",label:"Bihar"},
-  {value:"Chhattisgarh	",label:"Chhattisgarh	"},
-  {value:"Goa",label:"Goa"},
-  {value:"Gujarat",label:"Gujarat"},
-  {value:"Haryana",label:"Haryana"},
-  {value:"Jharkhand",label:"Jharkhand"},
-  {value:"Karnataka",label:"Karnataka"},
-  {value:"Kerala",label:"Kerala"},
-  {value:"Maharashtra",label:"Maharashtra"},
+  { value: " Assam", label: " Assam" },
+  { value: "Bihar ", label: "Bihar" },
+  { value: "Chhattisgarh	", label: "Chhattisgarh	" },
+  { value: "Goa", label: "Goa" },
+  { value: "Gujarat", label: "Gujarat" },
+  { value: "Haryana", label: "Haryana" },
+  { value: "Jharkhand", label: "Jharkhand" },
+  { value: "Karnataka", label: "Karnataka" },
+  { value: "Kerala", label: "Kerala" },
+  { value: "Maharashtra", label: "Maharashtra" },
 ];

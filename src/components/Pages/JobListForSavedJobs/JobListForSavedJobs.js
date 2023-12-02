@@ -177,21 +177,16 @@ export default function JobListForSavedJobs(){
 
     const getRemoved=()=>{	 
         dispatch(addTabToFilterOptions([]))
-        lengthForSelectedFilterOptions=0;
-        console.log(selected);
-         console.warn(selected)		  
+        lengthForSelectedFilterOptions=0;	  
       }		  
       const getCleared=(e)=>{
         let data=selected.tabsInFilterOptions;
         data = data.filter(item => JSON.stringify(item)!== JSON.stringify(e));			
-        console.log(data);
-        dispatch(addTabToFilterOptions(data))
-        console.warn(selected)		  
+        dispatch(addTabToFilterOptions(data))		  
       }
 
 
     const selectedPlace=useSelector((state=>state.showYourLocation))
-    console.log("your active location is"+selectedPlace.currentLocation);
     return(
         <Grid container direction="row">
             <Grid item xs = {2}>
@@ -231,7 +226,7 @@ export default function JobListForSavedJobs(){
 					<Grid item xs={9} style={{paddingLeft: "60px"}}> 
 					    <Grid container  spacing={2} >
 						{ selected.length>0 &&  selected.map(data=>
-							<Grid item>
+							<Grid item key={data}>
 	  							<div className={classes.borderBox} >
 									<MyTypography children={data} variant="h6" component="h5" className={classes.typographyParagraphStyle}  />
 									<Button  value={data}  onClick={()=>getCleared(data)}><ClearIcon className={classes.iconStyle}/></Button>	

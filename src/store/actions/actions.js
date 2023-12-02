@@ -1,73 +1,66 @@
-import {  SAVEJOB, SHOWJOB, SHOWPAGE, SHOWSTEPPER,SHOWYOURLOCATION,SHOWSKILLS,SHOWJOBLOCATION, ASSIGNJOBCARDDETAILS, UNSAVEJOB, SHOWJOBFORSAVEDJOBS } from '../types';
-
-
+import { SAVEJOB, SHOWJOB, SHOWPAGE, SHOWSTEPPER, SHOWYOURLOCATION, SHOWSKILLS, SHOWJOBLOCATION, ASSIGNJOBCARDDETAILS, UNSAVEJOB, SHOWJOBFORSAVEDJOBS } from '../types';
 
 export const savedJob = (job) => {
-    return{
+    return {
         type: SAVEJOB,
         job: job,
     }
 }
 
 export const unsaveJob = (job) => {
-    return{
+    return {
         type: UNSAVEJOB,
         job: job,
     }
 }
 
 export const showJob = (job) => {
-    return{
+    return {
         type: SHOWJOB,
         job: job,
     }
 }
 export const showJobForSavedJobs = (job) => {
-    return{
+    return {
         type: SHOWJOBFORSAVEDJOBS,
         job: job
     }
 }
 
 export const showPage = (page) => {
-    return{
+    return {
         type: SHOWPAGE,
         page: page
     }
 }
 
-
-
-
 export const showStepper = (stepper) => {
-    return{
+    return {
         type: SHOWSTEPPER,
         stepper: stepper
     }
 }
 
-
 export const showYourLocation = (location) => {
-    return{
+    return {
         type: SHOWYOURLOCATION,
-        location:location
+        location: location
     }
 }
 
 export const showSkills = (location) => {
-    return{
+    return {
         type: SHOWSKILLS,
-        location:location
+        location: location
     }
 }
 
 export const showJobLocation = (location) => {
-    return{
+    return {
         type: SHOWJOBLOCATION,
-        location:location
+        location: location
     }
 }
-
 
 export const assignJobCardDetails = (jobs) => ({
 

@@ -1,21 +1,21 @@
-import { SHOWYOURLOCATION,SAVEYOURLOCATION} from '../types'
+import { SHOWYOURLOCATION, SAVEYOURLOCATION } from '../types'
 
 const initialState = {
-   currentLocation: '',
-    
+    currentLocation: '',
+
 }
 
 const ShowYourLocationReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case SHOWYOURLOCATION:
-            return{                
+            return {
                 currentLocation: action.location,
             };
-            case SAVEYOURLOCATION:
-                return {
-                    ...state,currentLocation: action.location,
-                };
-        
+        case SAVEYOURLOCATION:
+            return {
+                ...state, currentLocation: action.location,
+            };
+
         default:
             return state;
     }

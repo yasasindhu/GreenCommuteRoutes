@@ -11,10 +11,6 @@ import Mybutton from '../../atoms/button/CustomButton';
 import { addTabToFilterOptions } from '../../../store/actions/actionsForFilterOptions';
 import ClearIcon from '@material-ui/icons/Clear';
 
-
-
-
-	
 const styles = (theme) => ({
     root: {
         margin: 0,
@@ -31,33 +27,28 @@ const styles = (theme) => ({
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
-
     },
     formControl: {
         margin: theme.spacing(3),
     },
-    buttonPadding : {
-        paddingRight : '10px'
+    buttonPadding: {
+        paddingRight: '10px'
     },
-    filterButtonStyle : {
-        
-        backgroundColor : '#e3f3f6',
-        textTransform : 'none',
-        marginLeft : '540px',
-        marginTop:'20px',
-
-
-    
+    filterButtonStyle: {
+        backgroundColor: '#e3f3f6',
+        textTransform: 'none',
+        marginLeft: '540px',
+        marginTop: '20px',
     },
     filterTextOptions: {
         fontWeight: 'normal',
         fontSize: '14px',
         fontFamily: "Montserrat",
     },
-    filterHeaders:{
+    filterHeaders: {
         fontSize: '14px',
         fontWeight: '600',
-        color:'#19293b',
+        color: '#19293b',
         fontFamily: "Montserrat",
     },
     dialogBox: {
@@ -65,200 +56,152 @@ const useStyles = makeStyles((theme) => ({
         height: '426px',
         objectFit: 'contain',
     },
-    checkBox:{
+    checkBox: {
         width: 10,
-          height: 10,
+        height: 10,
     },
-    closeIcon:{
+    closeIcon: {
         width: '24px',
-          height: '24px',
+        height: '24px',
     },
     topAlignment:
     {
-        marginTop:'500px',
+        marginTop: '500px',
     },
-     alignment: {
-       
-        display : 'flex',
-        flexDirection : 'row',
-        display:'inline-block',
-       
-    
+    alignment: {
 
-       
+        display: 'flex',
+        flexDirection: 'row',
+        display: 'inline-block',
     },
-    
-    typographyHeaderStyle : {
-        fontFamily : 'Montserrat',
-        color : '#19293b',
-        fontSize : '16px',
-        lineHeight : 1.5,
-        letterSpacing : '0.1px'
+    typographyHeaderStyle: {
+        fontFamily: 'Montserrat',
+        color: '#19293b',
+        fontSize: '16px',
+        lineHeight: 1.5,
+        letterSpacing: '0.1px'
     },
-    typographyParagraphStyle : {
-        fontFamily : 'Montserrat',
-        color : '#5ac568' ,
-        fontSize : '14px',
-        lineHeight : 1.57,
-        letterSpacing : '0.1px',
-        textAlign:'left',
-       
+    typographyParagraphStyle: {
+        fontFamily: 'Montserrat',
+        color: '#5ac568',
+        fontSize: '14px',
+        lineHeight: 1.57,
+        letterSpacing: '0.1px',
+        textAlign: 'left',
+
     },
- 
-    borderBox :
+
+    borderBox:
     {
-    border: '2px solid #5ac568',
-    borderRadius:'5px',
-    display : 'inline-flex',
-    flexDirection : 'row',
-    alignItems : 'center',
-    paddingLeft:'20px',
-   /* margin:'20px auto',*/
-   marginTop:'10px',
-   width:'auto',
-  
-
-
-    
-
+        border: '2px solid #5ac568',
+        borderRadius: '5px',
+        display: 'inline-flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingLeft: '20px',
+        marginTop: '10px',
+        width: 'auto',
     },
     iconStyle:
     {
-      width: '16px',
-  height: '16px',
-  color:'#5ac568',
+        width: '16px',
+        height: '16px',
+        color: '#5ac568',
     },
     clearButtonStyle:
     {
-      fontFamily: 'Montserrat',
-      fontSize: '14px',
-      fontWeight: '600',
-      fontstretch: 'normal',
-      fontStyle: 'normal',
-      lineHeight: '1.29',
-      letterSpacing: '0.2px',
-
+        fontFamily: 'Montserrat',
+        fontSize: '14px',
+        fontWeight: '600',
+        fontstretch: 'normal',
+        fontStyle: 'normal',
+        lineHeight: '1.29',
+        letterSpacing: '0.2px',
     },
     clearStyle:
     {
-      marginLeft : '550px',
-         
-      
-
+        marginLeft: '550px',
     },
     dialogStyle:
     {
-        marginTop:'150px',
-        marginLeft:'5px',
-        marginRight:'12px',
-        
+        marginTop: '150px',
+        marginLeft: '5px',
+        marginRight: '12px',
     }
-    
-    
 }));
 
-
-
-
-
-
-
-
-export default function SearchJobPage(){
+export default function SearchJobPage() {
 
     const dispatch = useDispatch();
     const state = useSelector((state => state.jobs))
     const jobsInFindJobs = state.jobsInFindJobs
     const stateForFilterOptions = useSelector((state => state.showCheckedFilterOptions))
     const selected = stateForFilterOptions.tabsInFilterOptions
-    let lengthForSelectedFilterOptions=selected.length;
-
-
-    
-
+    let lengthForSelectedFilterOptions = selected.length;
     const classes = useStyles();
 
-    const getRemoved=()=>{	 
+    const getRemoved = () => {
         dispatch(addTabToFilterOptions([]))
-        lengthForSelectedFilterOptions=0;
-        console.log(selected);
-         console.warn(selected)		  
-      }		  
-      const getCleared=(e)=>{
-        let data=selected.tabsInFilterOptions;
-        console.log("Boom1",selected)
-        console.log("Boom2",data);
-        data = selected.tabsInFilterOptions.filter(item => JSON.stringify(item)!== JSON.stringify(e));			
-        // setSelected(data);
+        lengthForSelectedFilterOptions = 0;
+    }
+    const getCleared = (e) => {
+        let data = selected.tabsInFilterOptions;
+        data = selected.tabsInFilterOptions.filter(item => JSON.stringify(item) !== JSON.stringify(e));
         dispatch(addTabToFilterOptions(data))
-        console.warn(selected)		  
-      }
+    }
 
-    const selectedPlace=useSelector((state=>state.showYourLocation))
-    console.log("your active location is"+selectedPlace.currentLocation);
-
-    return(
+    const selectedPlace = useSelector((state => state.showYourLocation))
+    return (
         <Grid container direction="row">
-            <Grid item xs = {2}>
-                    <SideNavBar/>
+            <Grid item xs={2}>
+                <SideNavBar />
             </Grid>
-            <Grid item xs = {10} style = {{ paddingLeft: "30px"}}>  
-                <Grid item style = {{width: "100%"}}>
-                    <TopNavigation locationName= { selectedPlace.currentLocation }/>
+            <Grid item xs={10} style={{ paddingLeft: "30px" }}>
+                <Grid item style={{ width: "100%" }}>
+                    <TopNavigation locationName={selectedPlace.currentLocation} />
                 </Grid>
-                <Grid style = {{ paddingLeft: "60px"}}>
-                    <Grid style = {{paddingTop: '20px', paddingBottom: '15px'}}>
-                        <MyTypography variant = "h4" component = "h3" children = "Find Jobs"/>
+                <Grid style={{ paddingLeft: "60px" }}>
+                    <Grid style={{ paddingTop: '20px', paddingBottom: '15px' }}>
+                        <MyTypography variant="h4" component="h3" children="Find Jobs" />
                     </Grid>
-                <JobSearch width="1050px"/>
+                    <JobSearch width="1050px" />
                 </Grid>
-                <Grid container direction = "row" style = {{ paddingLeft: "60px"}}>
-                    <Grid item xs = {8} >
-                        <Typography variant="h6" style = {{ color: "#324552", paddingTop: "20px", paddingBottom:"5px",  fontSize: "20px", fontFamily: "Montserrat", textAlign: "left" }}>
+                <Grid container direction="row" style={{ paddingLeft: "60px" }}>
+                    <Grid item xs={8} >
+                        <Typography variant="h6" style={{ color: "#324552", paddingTop: "20px", paddingBottom: "5px", fontSize: "20px", fontFamily: "Montserrat", textAlign: "left" }}>
                             Recommend for you
                         </Typography>
-                        <Typography variant="h1" style = {{ paddingBottom:"20px",  fontSize: "15px", fontFamily: "Montserrat", textAlign: "left", color: "grey" }}>
+                        <Typography variant="h1" style={{ paddingBottom: "20px", fontSize: "15px", fontFamily: "Montserrat", textAlign: "left", color: "grey" }}>
                             Based on your profile, skills and search history
-                        </Typography>                        
+                        </Typography>
                     </Grid>
-                    <Grid item xs = {3} style = {{ paddingTop: "10px"}}  direction="row" justifyContent = "flex-end">
-                        <FilterBox/>
+                    <Grid item xs={3} style={{ paddingTop: "10px" }} direction="row" justifyContent="flex-end">
+                        <FilterBox />
                     </Grid>
-
-
                     <Grid container direction="row">
-					<Grid item xs={7}> 
-					    <Grid container  spacing={2} >
-						{ selected.length>0 &&  selected.map(data=>
-							<Grid item>
-	  							<div className={classes.borderBox} >
-									<MyTypography children={data} variant="h6" component="h5" className={classes.typographyParagraphStyle}  />
-									<Button  value={data}  onClick={()=>getCleared(data)}><ClearIcon className={classes.iconStyle}/></Button>	
-								</div>
-							</Grid>	
-			   				)
-			  			}			 
-					    </Grid>
-					</Grid> 
-					<Grid item style={{marginTop:'12px', marginLeft: "0px"}} xs={2}>
-						{   lengthForSelectedFilterOptions >= 1 && <Mybutton text="clear all" color='secondary'  onClick={getRemoved}/>  }	
-					</Grid>
-			  	    </Grid>	
-
-
-
-
-
-
-
+                        <Grid item xs={7}>
+                            <Grid container spacing={2} >
+                                {selected.length > 0 && selected.map(data =>
+                                    <Grid item key={data}>
+                                        <div className={classes.borderBox} >
+                                            <MyTypography children={data} variant="h6" component="h5" className={classes.typographyParagraphStyle} />
+                                            <Button value={data} onClick={() => getCleared(data)}><ClearIcon className={classes.iconStyle} /></Button>
+                                        </div>
+                                    </Grid>
+                                )
+                                }
+                            </Grid>
+                        </Grid>
+                        <Grid item style={{ marginTop: '12px', marginLeft: "0px" }} xs={2}>
+                            {lengthForSelectedFilterOptions >= 1 && <Mybutton text="clear all" color='secondary' onClick={getRemoved} />}
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid container direction="row" spacing = {0} xs = {12} style = {{paddingLeft: "50px"}}>
-                    {                           
-                    // logo = {item.logo} roleName = {item.roleName} companyName = {item.companyName}
-                    // location = {item.location} icons = {item.icons}
-                        jobsInFindJobs.map((item) =>(
-                            <JobCard job = {item}/>
-                        ))                        
+                <Grid container direction="row" spacing={0} xs={12} style={{ paddingLeft: "50px" }}>
+                    {
+                        jobsInFindJobs.map((item) => (
+                            <JobCard job={item} />
+                        ))
                     }
                 </Grid>
             </Grid>

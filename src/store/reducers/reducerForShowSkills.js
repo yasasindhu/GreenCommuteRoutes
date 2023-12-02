@@ -1,23 +1,20 @@
 
-import { SHOWSKILLS} from '../types'
+import { SHOWSKILLS } from '../types'
 
-const defaultLocation=[
+const defaultLocation = [
 ]
 const initialState = {
-   activeSkills: defaultLocation
-    
+    activeSkills: defaultLocation
+
 }
 
 const ShowSkillsReducer = (state = initialState, action) => {
-   
-    switch(action.type){
+
+    switch (action.type) {
         case SHOWSKILLS:
-            console.log(action.location+ "this is location");
-            console.log("this render one",state);
-            console.log("this render two",action);
-           return {
-               activeSkills:action.location
-           }
+            return {
+                activeSkills: action.location
+            }
         default:
             return state;
     }

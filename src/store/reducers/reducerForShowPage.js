@@ -5,9 +5,9 @@ const initialState = {
 }
 
 const showPageReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case SHOWPAGE:
-            return{                
+            return {
                 pageToBeDisplayed: action.page,
             };
         default:

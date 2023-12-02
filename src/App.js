@@ -6,26 +6,18 @@ import customtheme from './components/theme';
 import store from './store/store';
 import PageRouting from './utils/PageRouting'
 
-
-
-
-
-
-
-
-
 const App = () => {
   return (
     <div>
-      <ThemeProvider theme = {customtheme}>
-        <Provider store = {store}>
+      <ThemeProvider theme={customtheme}>
+        <Provider store={store}>
           <React.StrictMode>
             <BrowserRouter>
-              <PageRouting/>
+              <PageRouting />
             </BrowserRouter>
           </React.StrictMode>
         </Provider>
-      </ThemeProvider> 
+      </ThemeProvider>
     </div>
   );
 };

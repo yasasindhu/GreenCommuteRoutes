@@ -3,7 +3,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import NoSsr from '@material-ui/core/NoSsr';
 import CheckIcon from '@material-ui/icons/Check';
 import styled from 'styled-components';
-import { makeStyles,ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import customtheme from '../../theme';
 
 const Label = styled('label')`
@@ -61,55 +61,55 @@ const InputWrapper = styled('div')`
   }
 `;
 const useStyles = makeStyles({
-	
-	header: {
-		 display: "flex",
-		 justifyContent: "space-between",
-		 alignItems: "center",
-		 objectFit:'contain',
+
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    objectFit: 'contain',
     //  padding: '18px 18px 18px 20px',
-	},
+  },
   root: {
-  fontFamily:'Montserrat',
-  fontSize: '16px',
-  fontWeight: '500',
-  lineHeight: '1.5',
-  letterSpacing: '0.1px',
-  textAlign: 'left',
-  color:'#19293b',
- },
- rightGrid:{
-  // width: '50%',
-  // height: '900px',
-   MarginLeft:'50%',
-   backgroundColor: '#e7fce0'
-},
-  title:{
-  margin: '80px 160px 30px 80px',
-  fontFamily: 'Montserrat',
-  fontSize: '32px',
-  fontWeight: 600,
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  lineHeight: '1.31',
-  letterSpacing: '0.1px',
-  textAlign: 'left',
-  width: '550px',
-  height: '84px',
+    fontFamily: 'Montserrat',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '1.5',
+    letterSpacing: '0.1px',
+    textAlign: 'left',
+    color: '#19293b',
   },
-  subtitle:{
-   margin: '20px 176px 20px 80px',
-  // margin:'0 0 4px', 
-  fontFamily: 'Montserrat',
-  fontSize: '20px',
-  fontWeight: '600',
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  lineHeight: '1.3',
-  letterSpacing: '0.2px',
-  textAlign: 'left',
+  rightGrid: {
+    // width: '50%',
+    // height: '900px',
+    MarginLeft: '50%',
+    backgroundColor: '#e7fce0'
   },
-  inputAlignment:{
+  title: {
+    margin: '80px 160px 30px 80px',
+    fontFamily: 'Montserrat',
+    fontSize: '32px',
+    fontWeight: 600,
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.31',
+    letterSpacing: '0.1px',
+    textAlign: 'left',
+    width: '550px',
+    height: '84px',
+  },
+  subtitle: {
+    margin: '20px 176px 20px 80px',
+    // margin:'0 0 4px', 
+    fontFamily: 'Montserrat',
+    fontSize: '20px',
+    fontWeight: '600',
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.3',
+    letterSpacing: '0.2px',
+    textAlign: 'left',
+  },
+  inputAlignment: {
     fontFamily: 'Montserrat',
     fontSize: '60px',
   }
@@ -163,7 +163,7 @@ const Listbox = styled('ul')`
   }
 `;
 
-export default function CustomTextFieldForJobSearchForJobListPage({placeholder}) {
+export default function CustomTextFieldForJobSearchForJobListPage({ placeholder }) {
   const classes = useStyles();
   const {
     getRootProps,
@@ -181,34 +181,33 @@ export default function CustomTextFieldForJobSearchForJobListPage({placeholder})
     options: top100Films,
     getOptionLabel: (option) => option.value,
   });
-console.log(value);
   return (
-    <NoSsr data-testid = "nossrinselect">
-      <div  data-testid = "1stdivinselect">
-      <ThemeProvider theme={customtheme}>
-        <div {...getRootProps()} data-testid = "2nddivinselect">
+    <NoSsr data-testid="nossrinselect">
+      <div data-testid="1stdivinselect">
+        <ThemeProvider theme={customtheme}>
+          <div {...getRootProps()} data-testid="2nddivinselect">
 
-          <InputWrapper data-testid = "inputwrapperinselect" ref={setAnchorEl} className={focused ? 'focused' : ''}>
-          <div className={classes.header} data-testid = "3rddivinselect">
-      <img data-testid = "imginselect"  src={"https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/f290029c-37b1-40a9-9c06-9f4ed4d67272.svg"} style={{width: '24px' , height: '24px' }}/>
-         </div>
-          
-            <input data-testid = "input1inselect" {...getInputProps()} placeholder = "Search Skills" />
-            
-          </InputWrapper>
-        </div>
-        {groupedOptions.length > 0 ? (
-          <Listbox data-testid = "input1inselect" {...getListboxProps()}>
-            {groupedOptions.map((option, index) => (
-              <li data-testid = "li1inselect" {...getOptionProps({ option, index })}>
-                <span data-testid = "span1inselect">{option.value}</span>
-                <CheckIcon data-testid = "checkinselect" fontSize="small" />
-              </li>
-            ))}
-          </Listbox>
-        ) : null}
-        <div data-testid = "4thinselect">    
-        </div>
+            <InputWrapper data-testid="inputwrapperinselect" ref={setAnchorEl} className={focused ? 'focused' : ''}>
+              <div className={classes.header} data-testid="3rddivinselect">
+                <img data-testid="imginselect" src={"https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/f290029c-37b1-40a9-9c06-9f4ed4d67272.svg"} style={{ width: '24px', height: '24px' }} />
+              </div>
+
+              <input data-testid="input1inselect" {...getInputProps()} placeholder="Search Skills" />
+
+            </InputWrapper>
+          </div>
+          {groupedOptions.length > 0 ? (
+            <Listbox data-testid="input1inselect" {...getListboxProps()}>
+              {groupedOptions.map((option, index) => (
+                <li data-testid="li1inselect" {...getOptionProps({ option, index })}>
+                  <span data-testid="span1inselect">{option.value}</span>
+                  <CheckIcon data-testid="checkinselect" fontSize="small" />
+                </li>
+              ))}
+            </Listbox>
+          ) : null}
+          <div data-testid="4thinselect">
+          </div>
         </ThemeProvider>
       </div>
     </NoSsr>
@@ -218,6 +217,6 @@ console.log(value);
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
   { value: "UI/UX Designer", label: "UI/UX Designer" },
-  { value: "Product Designer", label: "Product Designer" },  
-  { value: "Product Designer", label: "Product Designer" },  
+  { value: "Product Designer", label: "Product Designer" },
+  { value: "Product Designer", label: "Product Designer" },
 ];

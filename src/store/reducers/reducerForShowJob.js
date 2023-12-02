@@ -7,14 +7,14 @@ const initialState = {
 }
 
 const jobDescriptionReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case SHOWJOB:
-            return{                
+            return {
                 jobInShowJob: action.job,
                 previewJobDescription: true,
             };
         case SHOWJOBFORSAVEDJOBS:
-            return{
+            return {
                 jobToBeDisplayedInSavedJob: action.job,
                 previewJobDescription: true,
             }

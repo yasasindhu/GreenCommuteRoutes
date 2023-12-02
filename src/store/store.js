@@ -6,5 +6,5 @@ import rootReducer from "./reducers/rootReducer";
 
 export default createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware( ReduxThunk ))
+    composeWithDevTools(applyMiddleware(ReduxThunk))
 );

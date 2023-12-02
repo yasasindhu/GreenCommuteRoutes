@@ -10,9 +10,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function CustomisedIcon({ icon, width, height}){
-    // const classes = useStyles(width,height),
-    return(
+export default function CustomisedIcon({ icon, width, height }) {
+    return (
         <div>
             {icon}
         </div>

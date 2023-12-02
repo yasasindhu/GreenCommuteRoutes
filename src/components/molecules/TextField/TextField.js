@@ -6,11 +6,11 @@ import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import styled from 'styled-components';
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Grid  } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import Aqi from '../aqi/aqi';
 import Typography from '@material-ui/core/Typography';
 import customtheme from '../../theme.jsx';
-import {ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 const Label = styled('label')`
   padding: 0 0 4px;
@@ -19,17 +19,6 @@ const Label = styled('label')`
 `;
 
 const InputWrapper = styled('div')`
-  ${'' /* width: 500px;
-  height: 600px;
-  display: 'flex';
-  flexDirection:'row';
-  border:'1.5px solid #5ac568';
-  border-radius: 100px;
-  padding: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  backgroundColor : 'white', */}
-
   width: 500px;
   height: 60px;
   margin: 20px 210px 0px 80px;
@@ -46,7 +35,7 @@ const InputWrapper = styled('div')`
 
   &.focused {
     border-color: 1.5px solid #5ac568;
-    ${'' /* box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); */}
+    ${''}
   }
 
   & input {
@@ -65,96 +54,52 @@ const InputWrapper = styled('div')`
   }
 `;
 
-// const Tag = styled(({ label, onDelete, ...props }) => (
-//   <div {...props}>
-//    <div className={classes.root}>
-//     <span>{label}</span>
-//     </div>
-//     <CloseIcon onClick={onDelete} />
-//   </div>
-//  ))
-//  `
-//   display: flex;
-//   align-items: center;
-//   height: 24px;
-//   margin: 6px;
-//   line-height: 22px;
-//   background-color: #fafafa;
-//   border: 1.5px solid #5ac568;
-//   border-radius: 6px;
-//   box-sizing: content-box;
-//   // padding: 0 4px 0 10px;
-//   padding: 8px 10px;
-//   gap:8px;
-//   outline: 0;
-//   overflow: hidden;
-  
-//   &:focus {
-//     border-color: #40a9ff;
-//     background-color: #e6f7ff;
-//   }
-
-//   & span {
-//     overflow: hidden;
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-//   }
-
-//   & svg {
-//     font-size: 20px;
-//     cursor: pointer;
-//     padding: 4px;
-//     color: #324552;
-//   }
-// `;
 const useStyles = makeStyles({
-	
-	header: {
-		 display: "flex",
-		 justifyContent: "space-between",
-		 alignItems: "center",
-		 objectFit:'contain',
-     padding: '18px 18px 18px 20px',
-	},
-  root: {
-  fontFamily:'Montserrat',
-  fontSize: '16px',
-  fontWeight: '500',
-  lineHeight: '1.5',
-  letterSpacing: '0.1px',
-  textAlign: 'left',
-  color:'#19293b',
- },
- rightGrid:{
-  // width: '50%',
-  // height: '900px',
-   MarginLeft:'50%',
-   backgroundColor: '#e7fce0'
-},
-  title:{
-  margin: '80px 160px 30px 80px',
-  fontFamily: 'Montserrat',
-  fontSize: '32px',
-  fontWeight: 600,
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  lineHeight: '1.31',
-  letterSpacing: '0.1px',
-  textAlign: 'left',
-  width: '550px',
-  height: '84px',
+
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    objectFit: 'contain',
+    padding: '18px 18px 18px 20px',
   },
-  subtitle:{
-   margin: '20px 176px 20px 80px',
-  // margin:'0 0 4px', 
-  fontFamily: 'Montserrat',
-  fontSize: '20px',
-  fontWeight: '600',
-  fontStretch: 'normal',
-  fontStyle: 'normal',
-  lineHeight: '1.3',
-  letterSpacing: '0.2px',
-  textAlign: 'left',
+  root: {
+    fontFamily: 'Montserrat',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '1.5',
+    letterSpacing: '0.1px',
+    textAlign: 'left',
+    color: '#19293b',
+  },
+  rightGrid: {
+    MarginLeft: '50%',
+    backgroundColor: '#e7fce0'
+  },
+  title: {
+    margin: '80px 160px 30px 80px',
+    fontFamily: 'Montserrat',
+    fontSize: '32px',
+    fontWeight: 600,
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.31',
+    letterSpacing: '0.1px',
+    textAlign: 'left',
+    width: '550px',
+    height: '84px',
+  },
+  subtitle: {
+    margin: '20px 176px 20px 80px',
+    // margin:'0 0 4px', 
+    fontFamily: 'Montserrat',
+    fontSize: '20px',
+    fontWeight: '600',
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.3',
+    letterSpacing: '0.2px',
+    textAlign: 'left',
   }
 });
 
@@ -211,13 +156,13 @@ export default function CustomizedHook() {
 
   const Tag = styled(({ label, onDelete, ...props }) => (
     <div {...props}>
-     <div className={classes.root}>
-      <span>{label}</span>
+      <div className={classes.root}>
+        <span>{label}</span>
       </div>
       <CloseIcon onClick={onDelete} />
     </div>
-   ))
-   `
+  ))
+    `
     display: flex;
     align-items: center;
     height: 24px;
@@ -251,7 +196,7 @@ export default function CustomizedHook() {
       color: #324552;
     }
   `;
-  const maxOptions=2;
+  const maxOptions = 2;
   const {
     getRootProps,
     getInputLabelProps,
@@ -270,63 +215,48 @@ export default function CustomizedHook() {
     options: top100Films,
     getOptionLabel: (option) => option.value,
   });
-console.log(value.length);
-console.log(value);
   return (
     <NoSsr>
       <div>
-      <ThemeProvider theme={customtheme}>
-        <div {...getRootProps()}>
-        <div >
-        <Typography className={classes.title}>More than 2000 people are using Green Commute</Typography>
-        </div>
-        <div className={classes.subtitle}>
-          <Typography> Where do you stay?</Typography>
-        </div>
-          <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
-          <div className={classes.header}>
-          <img src={"https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/1cf5595f-c291-4826-a6b4-1590090a90ff.svg"} width= '24px' height= '24px' />
-         </div>
-            {value.map((option, index) => (
-              <Tag label={option.value} {...getTagProps({ index })} />
-            ))}
+        <ThemeProvider theme={customtheme}>
+          <div {...getRootProps()}>
+            <div >
+              <Typography className={classes.title}>More than 2000 people are using Green Commute</Typography>
+            </div>
+            <div className={classes.subtitle}>
+              <Typography> Where do you stay?</Typography>
+            </div>
+            <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
+              <div className={classes.header}>
+                <img src={"https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/1cf5595f-c291-4826-a6b4-1590090a90ff.svg"} width='24px' height='24px' />
+              </div>
+              {value.map((option, index) => (
+                <Tag label={option.value} {...getTagProps({ index })} />
+              ))}
 
-            <input {...getInputProps()} />
-          </InputWrapper>
-        </div>
-        {value.length<2 && groupedOptions.length > 0 ? (
-          <Listbox {...getListboxProps()}>
-            {groupedOptions.map((option, index) => (
-              <li {...getOptionProps({ option, index })}>
-                <span>{option.value}</span>
-                <CheckIcon fontSize="small" />
-              </li>
-            ))}
-          </Listbox>
-        ) : null}
-        <div>    
-        </div>
+              <input {...getInputProps()} />
+            </InputWrapper>
+          </div>
+          {value.length < 2 && groupedOptions.length > 0 ? (
+            <Listbox {...getListboxProps()}>
+              {groupedOptions.map((option, index) => (
+                <li {...getOptionProps({ option, index })}>
+                  <span>{option.value}</span>
+                  <CheckIcon fontSize="small" />
+                </li>
+              ))}
+            </Listbox>
+          ) : null}
+          <div>
+          </div>
         </ThemeProvider>
       </div>
-      {/* <Grid item className={ classes.rightGrid}>
-        <Aqi text={"Real - Time Air Quality Index (AQI) in this location"} 
-                 imgPath={ "https://cdn.zeplin.io/5fa28fcbff79c58958e4e1a6/assets/b7d255bc-324e-48a6-84ab-c0c15a18b17f.svg"} 
-                 isNumber= {true}
-                 count={"894"}
-                 isNumberTag={'true'}
-                 numberTag={value}
-                 textSize={"20px"}
-                 countSize= {"100px"}
-                 numberTagSize={"26px"}
-                 color={"#19293b"}
-              /> 
-         </Grid> */}
     </NoSsr>
   );
 }
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
- 
-  
+
+
 ];

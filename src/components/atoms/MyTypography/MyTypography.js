@@ -3,21 +3,21 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core';
 
 
-const useStyles = makeStyles((theme) =>({
-    root:{
+const useStyles = makeStyles((theme) => ({
+    root: {
         fontSize: '20px',
-            color: '#324552',
-            fontFamily: 'Montserrat',
-            lineHeight: '26px',
-            letterSpacing: '0.2px',
-            fontWeight: 'bold'
+        color: '#324552',
+        fontFamily: 'Montserrat',
+        lineHeight: '26px',
+        letterSpacing: '0.2px',
+        fontWeight: 'bold'
     }
 }))
 
-const MyTypography = ({children,...rest}) => {
+const MyTypography = ({ children, ...rest }) => {
     const classes = useStyles();
     return (
-        <Typography data-testid = "typographyComponent" className={classes.root} {...rest}> {children} </Typography>
+        <Typography data-testid="typographyComponent" className={classes.root} {...rest}> {children} </Typography>
     );
 }
 

@@ -1,29 +1,29 @@
-import { SHOWSTEPPER,INCREMENTSTEPPER,stepNext ,stepBack} from '../types'
+import { SHOWSTEPPER, INCREMENTSTEPPER, stepNext, stepBack } from '../types'
 
 const initialState = {
     activeStepper: 0,
-    
+
 }
 
 const ShowStepperReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case SHOWSTEPPER:
-            return{                
+            return {
                 activeStepper: action.stepper,
             };
-        case INCREMENTSTEPPER:{
+        case INCREMENTSTEPPER: {
             return {
-                activeStepper: action.stepper+1,
+                activeStepper: action.stepper + 1,
             };
         }
         case stepNext:
             return {
-                ...state,activeStepper:action.stepper+1,
-            } 
+                ...state, activeStepper: action.stepper + 1,
+            }
         case stepBack:
             return {
-                    ...state,activeStepper:action.stepper-1,
-            } 
+                ...state, activeStepper: action.stepper - 1,
+            }
         default:
             return state;
     }

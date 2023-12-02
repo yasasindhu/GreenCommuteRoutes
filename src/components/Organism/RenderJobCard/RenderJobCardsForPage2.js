@@ -7,20 +7,14 @@ import TrainOutlinedIcon from '@material-ui/icons/TrainOutlined';
 import DirectionsBusOutlinedIcon from '@material-ui/icons/DirectionsBusOutlined';
 import MotorcycleOutlinedIcon from '@material-ui/icons/MotorcycleOutlined';
 
-
-
-
-export function RenderJobCardsForPage2(props){
+export function RenderJobCardsForPage2(props) {
     const jobsInFindJobs = jobCardDetails
-    return(
-            <Grid container direction="row">
-          
-                                        
+    return (
+        <Grid container direction="row">
             {jobsInFindJobs.map((item) => (
-               
-                <JobCard logo = {item.logo} roleName = { item.roleName} companyName = {item.companyName} location = { item.location }  icons = {[<LocalTaxiOutlinedIcon />, <TrainOutlinedIcon /> , <DirectionsBusOutlinedIcon /> , <MotorcycleOutlinedIcon />]}/>
+                <JobCard logo={item.logo} roleName={item.roleName} companyName={item.companyName} location={item.location} icons={[<LocalTaxiOutlinedIcon />, <TrainOutlinedIcon />, <DirectionsBusOutlinedIcon />, <MotorcycleOutlinedIcon />]} />
             ))
             }
-            </Grid>
+        </Grid>
     );
 }

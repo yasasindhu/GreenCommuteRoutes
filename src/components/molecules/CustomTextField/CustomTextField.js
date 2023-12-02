@@ -4,7 +4,7 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import customtheme from "../../theme";
 
 
-const CustomTextField = ({locationPlaceholder}) => {
+const CustomTextField = ({ locationPlaceholder }) => {
 
   return (
     <ThemeProvider theme={customtheme}>
@@ -19,7 +19,7 @@ const CustomTextField = ({locationPlaceholder}) => {
           ),
         }}
         size="large"
-        data-testid = "cutomtextfield"
+        data-testid="cutomtextfield"
       />
     </ThemeProvider>
   );
